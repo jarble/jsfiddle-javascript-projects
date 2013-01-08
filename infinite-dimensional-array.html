@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://jsfiddle.net/Mx7j6/show/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title> - jsFiddle demo</title>
+  
+  <script type="text/javascript" src="./infinite-dimensional-array_files/mootools-core-1.4.5-nocompat.js"></script><style type="text/css"></style>
+  <link rel="stylesheet" type="text/css" href="./infinite-dimensional-array_files/normalize.css">
+  
+  <link rel="stylesheet" type="text/css" href="./infinite-dimensional-array_files/result-light.css">
+  
+  <style type="text/css">
+    
+  </style>
+  
+
+
+<script type="text/javascript">//<![CDATA[ 
+window.addEvent('load', function() {
+var coordinates = [];
+//coordinates[[0, 0, 3, 5]] = "Hello World";
+
+//coordinates[[0, 0, 3]] = "Hello World1";
+
+//console.log(coordinates[[0, 0, 3]]);
+//console.log(coordinates[[0, 0, 3, 5]]);
+
+function generateArray(theCoordinates){;
+    console.log("theCoordinates: " + theCoordinates)
+    if((theCoordinates.length % 2) == 0){
+        console.log("The number of coordinates is divisible by 2!");
+        if((coordinates[[theCoordinates]] == undefined)){
+            var theStuff = theCoordinates.slice(0, theCoordinates.length - 2);
+            console.log(theCoordinates + " is not defined!");
+            if(theCoordinates.length > 2){
+                generateArray(theStuff);
+                coordinates[theCoordinates] = 1;
+            }
+            else{
+                
+            }
+        }
+    }
+    else{
+        throw new Error("The number of coordinates must be divisible by 2! The number of coordinates is " + theCoordinates.length);
+    }
+}
+
+generateArray([0, 0, 1, 1, 0, 0]);
+
+function getBlockList(arr){
+    var newArr;
+    for(var i = 0; i < arr.length; i++){
+        for(var i = 0; i < arr.length; i++){
+            //how to get sub array?
+            //newArr[newArr.length] = 
+        }
+    }
+}
+});//]]>  
+
+</script>
+
+
+</head>
+<body>
+  
+  
+
+
+
+
+
+</body></html>

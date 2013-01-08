@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://jsfiddle.net/fq3sy/1/show/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title> - jsFiddle demo</title>
+  
+  <script type="text/javascript" src="./jsFiddle prioritizer demo_files/mootools-core-1.4.5-nocompat.js"></script><style type="text/css"></style>
+  <link rel="stylesheet" type="text/css" href="./jsFiddle prioritizer demo_files/normalize.css">
+  
+  <link rel="stylesheet" type="text/css" href="./jsFiddle prioritizer demo_files/result-light.css">
+  
+  <style type="text/css">
+    
+  </style>
+  
+
+
+<script type="text/javascript">//<![CDATA[ 
+window.addEvent('load', function() {
+alert(insertionSort("What needs to be done first", ["finish homework", "finish chores", "go shopping"]));
+
+function promptInput(comparison, str1, str2){
+    return prompt(comparison + ": "+str1+ " or " + str2 + "?");
+}
+
+//alert(promptInput("finish homework", "finish fractal project"));
+
+function insertionSort(comparison, arr) {
+    var len = arr.length, i = -1, j, tmp;
+ 
+    while (len--) {
+        tmp = arr[++i];
+        j = i;
+        while (j-- && (promptInput(comparison, arr[j], tmp) == arr[j])) {
+            arr[j + 1] = arr[j];
+        }
+        arr[j + 1] = tmp;
+    }
+    return arr.reverse();
+}
+
+
+});//]]>  
+
+</script>
+
+
+</head>
+<body>
+  
+  
+
+
+
+
+
+</body></html>

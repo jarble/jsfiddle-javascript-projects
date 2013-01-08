@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title> - jsFiddle demo</title>
+  
+  <script type="text/javascript" src="auto-wikifier_files/jquery-1.js"></script>
+  <link rel="stylesheet" type="text/css" href="auto-wikifier_files/normalize.css">
+  
+  <link rel="stylesheet" type="text/css" href="auto-wikifier_files/result-light.css">
+  
+  <style type="text/css">
+    
+  </style>
+  
+
+
+<script type="text/javascript">//<![CDATA[ 
+$(window).load(function(){
+var textarea = document.getElementById("textarea");
+var limit = 200;
+document.getElementById('wordsToWikify').value = "google, lol, awesome"
+
+$('.expandingTextArea').bind('keyup', function(){
+  textarea.style.height = "";
+  textarea.style.height = Math.min(textarea.scrollHeight, 300) + "px";
+  var theResult = createWikipediaLinks(document.getElementById("textarea").value, document.getElementById("wordsToWikify").value.split(","));
+  document.getElementById("printStuff").innerHTML = theResult;
+    document.getElementById("result").value = theResult;
+});
+    //alert(wikifyText("[[", "]]", "There are cars, be careful, carefully, and with great care!!", ["text", "hoogahjush", "wikify", "car", "careful", "carefully", "great care"]));
+
+//document.write(createWikipediaLinks("Hi, this is just a test. Car. Carry.", ["Carry", "Car", "test"]));
+
+function createWikipediaLinks(text, list){
+    //sort list into ascending order
+    list.sort(function(a, b){
+        return b.length - a.length; // ASC -> a - b; DESC -> b - a
+    });
+    list.reverse();
+    //replace every element in the array with the wikified text
+    for(var i = 0; i < list.length; i++){
+        text = wikifyText("<a href = 'http://en.wikipedia.org/wiki/"+list[i]+"'>", "</a>", text, [list[i]]);
+    }
+    return text;
+}
+
+function wikifyText(startString, endString, text, list){
+    //sort list into ascending order
+    list.sort(function(a, b){
+        return b.length - a.length; // ASC -> a - b; DESC -> b - a
+    });
+    list.reverse();
+    //replace every element in the array with the wikified text
+    for(var i = 0; i < list.length; i++){
+        text = text.replace(list[i], startString + list[i] + endString);
+    }
+    return text;
+}
+
+
+
+});//]]>  
+
+</script>
+
+
+</head>
+<body>
+  Automatically generate links to Wikipedia by typing text in each textbox!<br><br>
+
+Pages to link to:<textarea id="wordsToWikify" class="expandingTextArea">google, lol, awesome</textarea><br>
+Text to wikify:<textarea id="textarea" class="expandingTextArea"></textarea><br>
+<p id="printStuff" class="expandingTextArea"></p>
+<br><br>
+Generated HTML:<textarea id="result"></textarea>
+  
+
+
+
+
+
+</body></html>

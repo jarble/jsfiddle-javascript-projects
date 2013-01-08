@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://jsfiddle.net/zjypd/show/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title> - jsFiddle demo</title>
+  
+  <script type="text/javascript" src="./- jsFiddle demo_files/dummy.js"></script><style type="text/css"></style>
+  <link rel="stylesheet" type="text/css" href="./- jsFiddle demo_files/normalize.css">
+  
+  <link rel="stylesheet" type="text/css" href="./- jsFiddle demo_files/result-light.css">
+  
+  <style type="text/css">
+    #canvas {
+    width: 100px;
+    height: 100px;
+}
+  </style>
+  
+
+
+<script type="text/javascript">//<![CDATA[ 
+window.onload=function(){
+var arr1 = [
+    [[255, 255, 255],[200, 200, 0],[]],
+    [[200, 0, 0],[200, 200, 0],[200, 200, 0]],
+    [[200, 200, 0],[200, 0, 0],[200, 200, 0]]
+];
+
+var ctx = document.querySelector("canvas").getContext("2d");
+var imgData = ctx.getImageData(0, 0, 3, 3);
+var data = imgData.data;
+
+var height = arr1.length;
+var width = arr1[0].length;
+
+var h = ctx.canvas.height;
+var w = ctx.canvas.width;
+
+for(var i = 0; i < height; i++) {
+    for(var j = 0; j < width; j++) {
+        var s = 4 * i * h + 4 * j;
+        var x = arr1[i][j];
+        data[s] = x[0];
+        data[s + 1] = x[1];
+        data[s + 2] = x[2];
+        data[s + 3] = 255;
+    }
+}
+
+ctx.putImageData(imgData, 0, 0);
+
+}//]]>  
+
+</script>
+
+
+</head>
+<body>
+  <canvas id="canvas" height="3" width="3"></canvas>
+
+  
+
+
+
+
+
+</body></html>
